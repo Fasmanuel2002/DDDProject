@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ValueObjects
 {
-    public class PersonIdentification
+    public partial record PersonIdentification
     {
         public const int DefaultLength = 9;
         private const string IdentificationPattern = @"^[0-9]{8}[A-Z]$";
@@ -18,7 +18,7 @@ namespace Domain.ValueObjects
     
         public static PersonIdentification? Create(string value)
         {
-            if (string.IsNullOrEmpty(value) || (!PersonIdentificationPersonRegex().IsMatch(value) || value.Length > 9)
+            if (string.IsNullOrEmpty(value) || (!PersonIdentificationPersonRegex().IsMatch(value) || value.Length > 9))
             {
                 return null;
             }
