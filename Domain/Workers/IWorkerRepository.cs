@@ -10,12 +10,13 @@ namespace Domain.Workers
     {
         Task<Worker?> GetByIdAsync(WorkerId Id);
 
-        Task<IEnumerable<Worker>> GetAllWorkersAsync();
+        Task<List<Worker>> GetAllWorkersAsync();
+        
 
         Task AddWorkerAsync(Worker worker);
 
         Task UpdateWorkerAsync(Worker worker);
 
-        Task DeleteWorkerAsync(WorkerId workerId);
+        Task DeleteWorkerAsync(Worker worker);
     }
 }
