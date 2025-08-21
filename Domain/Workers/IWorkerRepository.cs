@@ -18,5 +18,7 @@ namespace Domain.Workers
         Task UpdateWorkerAsync(Worker worker);
 
         Task DeleteWorkerAsync(Worker worker);
+
+        Task<bool> ExistsAsync(WorkerId id);
     }
 }

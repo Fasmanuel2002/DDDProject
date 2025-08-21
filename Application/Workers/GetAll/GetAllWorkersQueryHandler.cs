@@ -36,7 +36,8 @@ namespace Application.Workers.GetAll
                 worker.Address.City,
                 worker.Address.State,
                 worker.Address.ZipCode
-                ))).ToList();
+                ), 
+                worker.Active)).ToList();
 
         }
     }

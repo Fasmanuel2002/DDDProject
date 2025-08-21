@@ -11,7 +11,7 @@ namespace Application.Workers.Common
         string FullName,
         string PersonIdentification, 
         string EmailAddres,
-        AddressResponse Address
+        AddressResponse Address,
         bool Active);
 
     public record AddressResponse(
@@ -23,5 +23,5 @@ namespace Application.Workers.Common
         string ZipCode
         );     
     
-    }
 }
+

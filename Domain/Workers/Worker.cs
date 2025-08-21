@@ -38,5 +38,8 @@ namespace Domain.Workers
 
         public Address Address { get; private set; }
         public bool Active { get; private set; }
+
+        public static Worker UpdateWorker(Guid id, string name, string lastName, PersonIdentification personIdentification,EmailAdress emailAdress, Address address, bool activate)
+        { return  UpdateWorker(id, name, lastName, personIdentification, emailAdress, address, activate); }
     }
 }
