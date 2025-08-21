@@ -11,13 +11,14 @@ namespace Domain.Workers
     //La clase sellada se da debido no necesito que esta clase tenga una  modificiacion externa(100 % encapsulada) 
     public sealed class Worker : AggregateRoot //Heredamos todos las funcionnes de nuestra clase AggregateRoot
     {
-        public Worker(WorkerId id, string name, string lastName, PersonIdentification personIdentification,EmailAdress emailAdress, bool active)
+        public Worker(WorkerId id, string name, string lastName, PersonIdentification personIdentification,EmailAdress emailAdress,Address address, bool active)
         {
             Id = id;
             Name = name;
             LastName = lastName;
             PersonIdentification = personIdentification;
             EmailAdress = emailAdress;
+            Address = address;
             Active = active;
         }
 
@@ -35,6 +36,7 @@ namespace Domain.Workers
 
         public EmailAdress EmailAdress { get; private set; }
 
+        public Address Address { get; private set; }
         public bool Active { get; private set; }
     }
 }
