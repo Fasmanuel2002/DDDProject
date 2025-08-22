@@ -10,9 +10,9 @@ namespace Infrastructure.Persistence
     {
         private readonly IPublisher _publisher; //_publisher: Es una instancia de MediatR para publicar Domain Events.
 
-        public ApplicationDbContext(DbContextOptions options, IPublisher publisher) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IPublisher publisher) : base(options)
         {
-
+            _publisher = publisher;
         }
 
         public DbSet<Worker> Workers { get; set; } // DbSet<Worker> representa la tabla Workers en la base de datos.
