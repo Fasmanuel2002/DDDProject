@@ -13,17 +13,15 @@ builder.Services.AddPresentation()
                 .AddApplication();
 
 
-
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    ///app.UseSwagger();
-    //app.UseSwaggerUI();
-
-    app.ApplyMigration();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 
 }
 
@@ -35,3 +33,5 @@ app.UseAuthorization();
 
 
 app.MapControllers();
+
+app.Run();

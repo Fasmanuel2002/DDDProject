@@ -47,7 +47,7 @@ namespace Application.Workers.Create
                 true
                 );
 
-            _workerRepository.AddWorkerAsync(worker);
+            await _workerRepository.AddWorkerAsync(worker);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             return Unit.Value;
         }

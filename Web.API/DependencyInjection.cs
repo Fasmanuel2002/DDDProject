@@ -10,7 +10,7 @@ namespace Web.API
 
             services.AddControllers();
             services.AddEndpointsApiExplorer();
-            //services.AddSwaggerGen();
+            services.AddSwaggerGen();
             return services;
         }
     }
