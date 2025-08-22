@@ -1,5 +1,6 @@
 ﻿using Application.Workers.Create;
 using Application.Workers.Delete;
+using Application.Workers.GetAll;
 using Application.Workers.GetById;
 using Application.Workers.Update;
 using ErrorOr;
@@ -84,6 +85,24 @@ namespace Web.API.Controllers
                 statusCode: StatusCodes.Status404NotFound
                     )
                 );
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var GetResult = await _mediator.Send(new GetAllWokersQuery());
+
+            return GetResult.Match(
+                WorkerId => Ok(WorkerId),
+                errors => Problem(
+                    title: "Error to search person",
+                    detail: string.Join("; ", errors.Select(e => e.Description)),
+                    statusCode: StatusCodes.Status404NotFound
+                    )
+                );
+
+
         }
     }
 }
